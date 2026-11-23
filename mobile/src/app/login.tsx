@@ -40,6 +40,7 @@ export default function Login() {
         placeholderTextColor="grey"
         placeholder="Mot de passe"
         onChangeText={setPassword}
+        secureTextEntry={true}
       >
         {password}
       </TextInput>

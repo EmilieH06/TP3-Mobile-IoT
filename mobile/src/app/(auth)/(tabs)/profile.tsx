@@ -74,6 +74,7 @@ export default function Profile() {
                 placeholderTextColor="grey"
                 placeholder="Ancien mot de passe"
                 onChangeText={setOldPassword}
+                secureTextEntry={true}
               />
               <TextInput
                 value={newPassword}
@@ -81,6 +82,7 @@ export default function Profile() {
                 placeholderTextColor="grey"
                 placeholder="Nouveau mot de passe"
                 onChangeText={setNewPassword}
+                secureTextEntry={true}
               />
               <TextInput
                 value={confirmNewPassword}
@@ -88,6 +90,7 @@ export default function Profile() {
                 placeholderTextColor="grey"
                 placeholder="Confirmation du mot de passe"
                 onChangeText={setConfirmNewPassword}
+                secureTextEntry={true}
               />
             </View>
           )}

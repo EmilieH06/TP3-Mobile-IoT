@@ -60,6 +60,7 @@ export default function Register() {
         placeholderTextColor="grey"
         placeholder="Mot de passe"
         onChangeText={setPassword}
+        secureTextEntry={true}
       >
         {password}
       </TextInput>
@@ -68,6 +69,7 @@ export default function Register() {
         placeholderTextColor="grey"
         placeholder="Confirmation du mot de passe"
         onChangeText={setPasswordConfirmation}
+        secureTextEntry={true}
       >
         {passwordConfirmation}
       </TextInput>
