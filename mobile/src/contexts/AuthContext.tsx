@@ -45,12 +45,28 @@ export function AuthContextProvider({
     }
     await createUserWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
-        if (firstName !== "" || lastName !== "") {
+        if (firstName !== "" && lastName !== "") {
           //https://firebase.google.com/docs/firestore/manage-data/add-data?hl=fr
           await setDoc(doc(db, "appUser", userCredential.user.uid), {
             firstName: firstName,
             lastName: lastName,
           });
+
+          if (appUserAvatar?.avatar) {
+            const avatar: AppUserAvatar = {
+              userId: userCredential.user.uid,
+              avatar: appUserAvatar.avatar,
+            };
+
+            setUserAvatar(avatar);
+
+            //https://github.com/react-native-async-storage/async-storage
+            //https://loveandroid.medium.com/asyncstorage-in-react-native-607b8afb5b96
+            await AsyncStorage.setItem(
+              `avatar_${userCredential.user.uid}`,
+              JSON.stringify(avatar),
+            );
+          }
 
           router.replace("/(auth)/(tabs)");
         } else {
@@ -126,17 +142,20 @@ export function AuthContextProvider({
 
     if (!result.canceled) {
       const avatar: AppUserAvatar = {
-        userId: auth.currentUser!.uid,
+        userId: auth.currentUser?.uid ?? "",
         avatar: result.assets[0].uri,
       };
 
       setUserAvatar(avatar);
-      //https://github.com/react-native-async-storage/async-storage
-      //https://loveandroid.medium.com/asyncstorage-in-react-native-607b8afb5b96
-      await AsyncStorage.setItem(
-        `avatar_${auth.currentUser!.uid}`,
-        JSON.stringify(avatar),
-      );
+
+      if (auth.currentUser) {
+        //https://github.com/react-native-async-storage/async-storage
+        //https://loveandroid.medium.com/asyncstorage-in-react-native-607b8afb5b96
+        await AsyncStorage.setItem(
+          `avatar_${auth.currentUser.uid}`,
+          JSON.stringify(avatar),
+        );
+      }
     }
   }
 
