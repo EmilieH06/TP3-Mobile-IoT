@@ -5,13 +5,52 @@ export default function TabsLayout() {
   return (
     <Tabs>
       <Tabs.Screen
-        name="index"
+        name="vaults"
         options={{
-          title: "",
-          //https://stackoverflow.com/questions/75961091/react-native-headerbacktitlevisible-false-not-working-in-expo-sdk-48
-          headerBackButtonDisplayMode: "minimal",
-          //https://github.com/react-navigation/react-navigation/issues/4069
-          tabBarItemStyle: { display: "none" },
+          title: "Coffres",
+          tabBarIcon: () => (
+            <MaterialCommunityIcons
+              //https://dev.to/ajmal_hasan/using-react-native-vector-icons-in-react-native-1bem
+              //https://pictogrammers.com/library/mdi/
+              name="key-variant"
+              color={"#000000"}
+              size={24}
+            />
+          ),
+          headerShown: false,
+        }}
+      />
+
+      <Tabs.Screen
+        name="badges"
+        options={{
+          title: "Badges",
+          tabBarIcon: () => (
+            <MaterialCommunityIcons
+              //https://dev.to/ajmal_hasan/using-react-native-vector-icons-in-react-native-1bem
+              //https://pictogrammers.com/library/mdi/
+              name="badge-account"
+              color={"#000000"}
+              size={24}
+            />
+          ),
+          headerShown: false,
+        }}
+      />
+
+      <Tabs.Screen
+        name="journal"
+        options={{
+          title: "Journal",
+          tabBarIcon: () => (
+            <MaterialCommunityIcons
+              //https://dev.to/ajmal_hasan/using-react-native-vector-icons-in-react-native-1bem
+              //https://pictogrammers.com/library/mdi/
+              name="notebook"
+              color={"#000000"}
+              size={24}
+            />
+          ),
           headerShown: false,
         }}
       />

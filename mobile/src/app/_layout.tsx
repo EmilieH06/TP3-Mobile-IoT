@@ -15,7 +15,7 @@ function MainLayout() {
       //https://github.com/vercel/next.js/discussions/51527
       router.replace("/(auth)/(tabs)");
     } else if (!isAuthenticated && rootSegment === "(auth)") {
-      router.replace("/home");
+      router.replace("/vaults");
     }
   }, [isAuthenticated, rootSegment]);
 
@@ -32,14 +32,6 @@ function MainLayout() {
         name="(auth)"
         options={{
           headerShown: false,
-        }}
-      />
-      <Stack.Screen
-        name="home"
-        options={{
-          title: "",
-          //https://stackoverflow.com/questions/75961091/react-native-headerbacktitlevisible-false-not-working-in-expo-sdk-48
-          headerBackButtonDisplayMode: "minimal",
         }}
       />
       <Stack.Screen

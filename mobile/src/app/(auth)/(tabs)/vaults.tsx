@@ -1,10 +1,10 @@
 import Header from "@/components/Header";
 import { StyleSheet, View } from "react-native";
 
-export default function Index() {
+export default function Vaults() {
   return (
     <View style={styles.container}>
-      <Header title="Home" />
+      <Header title="Coffres" />
     </View>
   );
 }
@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 4,
+    paddingTop: 8,
     backgroundColor: "#e3e3e3",
   },
 });

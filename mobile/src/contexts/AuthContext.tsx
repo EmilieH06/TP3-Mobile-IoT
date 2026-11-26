@@ -118,7 +118,7 @@ export function AuthContextProvider({
         setUserAvatar(null);
         setUser(undefined);
 
-        router.replace("/home");
+        router.replace("/login");
       })
       .catch(() => {
         Alert.alert("Une erreur inattendue est survenue lors de la déconnexion.");
