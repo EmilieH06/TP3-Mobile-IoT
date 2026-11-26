@@ -1,13 +1,13 @@
-#include "coffre.h"
+#include "coffre/coffre.h"
 
 #include <Arduino.h>
 #include <time.h>
 
-#include "../afficheur/afficheur.h"
-#include "../matrice/matrice.h"
-#include "../reseau/journal.h"
-#include "boutons.h"
-#include "verrou.h"
+#include "afficheur/afficheur.h"
+#include "matrice/matrice.h"
+#include "reseau/journal.h"
+#include "coffre/boutons.h"
+#include "coffre/verrou.h"
 
 enum EtatCoffre { 
   NON_PROGRAMME, 

@@ -1,12 +1,12 @@
-#include "verrou.h"
+#include "coffre/verrou.h"
 
 #include <Arduino.h>
 #include <ESP32Servo.h>
 #include <time.h>
 
-#include "../afficheur/afficheur.h"
-#include "../matrice/matrice.h"
-#include "../reseau/journal.h"
+#include "afficheur/afficheur.h"
+#include "matrice/matrice.h"
+#include "reseau/journal.h"
 
 const int BROCHE_SERVO = 25;
 static Servo servo;
