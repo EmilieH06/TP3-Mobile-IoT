@@ -1,4 +1,4 @@
-#include "matrice.h"
+#include "matrice/matrice.h"
 
 #include <Adafruit_NeoMatrix.h>
 
