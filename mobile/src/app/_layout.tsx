@@ -13,9 +13,9 @@ function MainLayout() {
       return;
     } else if (isAuthenticated && rootSegment !== "(auth)") {
       //https://github.com/vercel/next.js/discussions/51527
-      router.replace("/(auth)/(tabs)");
+      router.replace("/(auth)/(tabs)/vaults");
     } else if (!isAuthenticated && rootSegment === "(auth)") {
-      router.replace("/home");
+      router.replace("/login");
     }
   }, [isAuthenticated, rootSegment]);
 
@@ -32,14 +32,6 @@ function MainLayout() {
         name="(auth)"
         options={{
           headerShown: false,
-        }}
-      />
-      <Stack.Screen
-        name="home"
-        options={{
-          title: "",
-          //https://stackoverflow.com/questions/75961091/react-native-headerbacktitlevisible-false-not-working-in-expo-sdk-48
-          headerBackButtonDisplayMode: "minimal",
         }}
       />
       <Stack.Screen

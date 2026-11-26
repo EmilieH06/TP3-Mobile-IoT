@@ -1,10 +1,10 @@
 import Header from "@/components/Header";
 import { StyleSheet, View } from "react-native";
 
-export default function Home() {
+export default function Journal() {
   return (
     <View style={styles.container}>
-      <Header title="Accueil" />
+      <Header title="Journal" />
     </View>
   );
 }
@@ -12,7 +12,8 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 8,
+    padding: 4,
+    paddingTop: 8,
     backgroundColor: "#e3e3e3",
   },
 });

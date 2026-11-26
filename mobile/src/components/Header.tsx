@@ -17,17 +17,17 @@ export default function Header({ title }: Props) {
     });
   }
 
-  function onHome() {
+  function onVault() {
     if (isAuthenticated) {
       router.push({
-        pathname: "/(auth)/(tabs)",
+        pathname: "/(auth)/(tabs)/vaults",
       });
     }
   }
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={onHome}>
+      <TouchableOpacity onPress={onVault}>
         <MaterialCommunityIcons
           //https://dev.to/ajmal_hasan/using-react-native-vector-icons-in-react-native-1bem
           //https://pictogrammers.com/library/mdi/

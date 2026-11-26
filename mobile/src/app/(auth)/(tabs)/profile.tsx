@@ -13,7 +13,7 @@ import {
 } from "react-native";
 
 export default function Profile() {
-  const { appUser, logout, changeAvatar, updateUserPassword } = useAuth();
+  const { appUser, logout, updateUserPassword } = useAuth();
 
   const [isChangingPassword, setChangePassword] = useState<boolean>(false);
   const [oldPassword, setOldPassword] = useState<string>("");
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 4,
-    paddingTop: 16,
+    paddingTop: 8,
     backgroundColor: "#e3e3e3",
   },
   profileContainer: {
