@@ -13,9 +13,9 @@ function MainLayout() {
       return;
     } else if (isAuthenticated && rootSegment !== "(auth)") {
       //https://github.com/vercel/next.js/discussions/51527
-      router.replace("/(auth)/(tabs)");
+      router.replace("/(auth)/(tabs)/vaults");
     } else if (!isAuthenticated && rootSegment === "(auth)") {
-      router.replace("/vaults");
+      router.replace("/login");
     }
   }, [isAuthenticated, rootSegment]);
 

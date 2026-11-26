@@ -68,7 +68,7 @@ export function AuthContextProvider({
             );
           }
 
-          router.replace("/(auth)/(tabs)");
+          router.replace("/(auth)/(tabs)/vaults");
         } else {
           Alert.alert("Votre prénom ou votre nom est manquant.");
         }
@@ -92,7 +92,7 @@ export function AuthContextProvider({
     signInWithEmailAndPassword(auth, email, password)
       .then(async () => {
         try {
-          router.replace("/(auth)/(tabs)");
+          router.replace("/(auth)/(tabs)/vaults");
         } catch (error) {
           console.error("Une erreur est survenue lors du chargement de l'avatar.");
         }

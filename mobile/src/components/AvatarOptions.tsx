@@ -9,6 +9,30 @@ export default function AvatarOptions() {
 
   const [isOpen, setOpen] = useState(false);
 
+  function onVaults() {
+    setOpen(false);
+
+    router.push({
+      pathname: "/(auth)/(tabs)/vaults",
+    });
+  }
+
+  function onBadges() {
+    setOpen(false);
+
+    router.push({
+      pathname: "/(auth)/(tabs)/badges",
+    });
+  }
+
+  function onJournal() {
+    setOpen(false);
+
+    router.push({
+      pathname: "/(auth)/(tabs)/journal",
+    });
+  }
+
   function onProfile() {
     setOpen(false);
 
@@ -46,6 +70,18 @@ export default function AvatarOptions() {
 
       {isOpen && (
         <View style={styles.menu}>
+          <TouchableOpacity style={styles.item} onPress={onVaults}>
+            <Text>Mes coffres</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.item} onPress={onBadges}>
+            <Text>Mes badges</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.item} onPress={onJournal}>
+            <Text>Mon journal</Text>
+          </TouchableOpacity>
+
           <TouchableOpacity style={styles.item} onPress={onProfile}>
             <Text>Mon profil</Text>
           </TouchableOpacity>
