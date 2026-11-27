@@ -1,13 +1,23 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import type { Vault } from "../types/vault";
+import { useRouter } from "expo-router";
 
 type Props = {
   vault: Vault;
 };
 
 export default function VaultInfo({ vault }: Props) {
+  const router = useRouter();
+
+  function onDetail() {
+    router.push({
+      pathname: "/vaults/[id]",
+      params: { id: vault.id },
+    })
+  }
+
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onDetail}>
       <Text style={styles.title}> Id: {vault.id} --- Nom: {vault.name}</Text>
 
       <Text style={styles.textList}>
@@ -19,7 +29,7 @@ export default function VaultInfo({ vault }: Props) {
       <Text style={styles.textList}>
         Dernière modification: {vault.time}
       </Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -38,10 +48,5 @@ const styles = StyleSheet.create({
     padding: 12,
     fontWeight: 700,
     fontSize: 20,
-  },
-  image: {
-    width: "100%",
-    height: 175,
-    borderRadius: 10,
   },
 });

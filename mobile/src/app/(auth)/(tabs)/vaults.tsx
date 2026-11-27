@@ -10,7 +10,7 @@ export default function Vaults() {
     id: "a",
     name: "dawd",
     state: VaultState.Ouvert,
-    code: 2345,
+    code: "2345",
     temperature: 3456,
     time: "345esrd",
     userId: "2"
@@ -19,7 +19,7 @@ export default function Vaults() {
     id: "adwa",
     name: "dawdwadawd",
     state: VaultState.Ferme,
-    code: 6543,
+    code: "6543",
     temperature: 76,
     time: "tg45g",
     userId: "3"

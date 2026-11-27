@@ -3,11 +3,19 @@ export enum VaultState {
   Ferme = "Fermé"
 }
 
-export interface Vault {
+export interface Temperature {
   id: string;
+  vaultId: string;
+  temperature: number;
+  time: string;
+  outOfRange: boolean;
+}
+
+export interface Vault {
+  id?: string;
   name: string;
   state: VaultState;
-  code: number;
+  code: string;
   temperature?: number;
   tempMin?: number;
   tempMax?: number;
@@ -18,7 +26,7 @@ export interface Vault {
 export type VaultContextType = {
   isLoading: boolean;
   vaults: Vault[];
-  addVault: (id: string, name: string, code: number, tempMin: number, tempMax: number) => void;
-  modifyVault: (vaultId: string) => void;
-  detailVault: (vaultId: string) => void;
+  addVault: (id: string, name: string, code: string, tempMin: number, tempMax: number) => void;
+  modifyVault: (vaultId: string, name: string, code: string, tempMin: number, tempMax: number) => void;
+  getTemperatures: (vaultId: string) => Promise<Temperature[]>;
 };

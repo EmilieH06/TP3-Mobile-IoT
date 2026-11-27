@@ -1,4 +1,5 @@
 import { AuthContextProvider } from "@/contexts/AuthContext";
+import { VaultContextProvider } from "@/contexts/VaultContext";
 import { useAuth } from "@/hooks/useAuth";
 import { Stack, router, useSegments } from "expo-router";
 import { useEffect } from "react";
@@ -57,7 +58,9 @@ function MainLayout() {
 export default function RootLayout() {
   return (
     <AuthContextProvider>
-      <MainLayout />
+      <VaultContextProvider>
+        <MainLayout />
+      </VaultContextProvider>
     </AuthContextProvider>
   );
 }
