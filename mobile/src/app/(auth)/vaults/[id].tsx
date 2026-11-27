@@ -1,11 +1,13 @@
-import Header from "@/components/Header";
 import VaultDetailInfoCard from "@/components/VaultDetailInfoCard";
 import VaultTemperatureInfo from "@/components/VaultTemperatureInfo";
-import { StyleSheet, View, FlatList, ActivityIndicator } from "react-native";
+import { StyleSheet, View, FlatList, ActivityIndicator, TouchableOpacity, Text } from "react-native";
 import { Temperature, Vault, VaultState } from "@/types/vault";
+import { router } from "expo-router";
+import { useLocalSearchParams } from "expo-router";
 
-export default function Vaults() {
+export default function VaultDetail() {
   const isLoading = false;
+  const { id } = useLocalSearchParams<{ id: string }>();
 
   const vault: Vault = {
     id: "dawdwaa",
@@ -33,6 +35,13 @@ export default function Vaults() {
   }
   const temperatures: Temperature[] = [temperature1, temperature2]
   
+  function onModify() {
+    router.push({
+      pathname: "/(auth)/vaults/modify/[id]",
+      params: { id: vault.id },
+    })
+  }
+
   if (isLoading) {
     return (
       <View style={styles.loadingContainer}>
@@ -43,6 +52,10 @@ export default function Vaults() {
     return (
       <View style={styles.container}>
         <VaultDetailInfoCard vault={vault}/>
+
+        <TouchableOpacity style={styles.button} onPress={onModify}>
+          <Text style={styles.buttonText}>Modifier le coffre</Text>
+        </TouchableOpacity>
 
         <FlatList
           data={temperatures}
@@ -87,5 +100,18 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: "100%",
     marginBottom: 10,
+  },
+  button: {
+    backgroundColor: "#23769f",
+    padding: 12,
+    marginTop: 4,
+    marginBottom: 10,
+    borderRadius: 10,
+    margin: 5,
+  },
+  buttonText: {
+    color: "#ffffff",
+    textAlign: "center",
+    fontWeight: "bold",
   },
 });

@@ -1,14 +1,12 @@
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import type { Vault } from "../types/vault";
-import { useRouter } from "expo-router";
+import { router } from "expo-router";
 
 type Props = {
   vault: Vault;
 };
 
 export default function VaultInfo({ vault }: Props) {
-  const router = useRouter();
-
   function onDetail() {
     router.push({
       pathname: "/vaults/[id]",

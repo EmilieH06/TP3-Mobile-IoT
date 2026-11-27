@@ -1,7 +1,8 @@
 import Header from "@/components/Header";
 import VaultInfoCard from "@/components/VaultInfoCard";
-import { StyleSheet, View, FlatList, ActivityIndicator } from "react-native";
+import { StyleSheet, View, FlatList, ActivityIndicator, TouchableOpacity, Text } from "react-native";
 import { Vault, VaultState } from "@/types/vault";
+import { router } from "expo-router";
 
 export default function Vaults() {
   const isLoading = false;
@@ -27,6 +28,10 @@ export default function Vaults() {
 
   const vaults: Vault[] = [vault1, vault2]
 
+  function onAdd() {
+    router.push("/(auth)/vaults/create")
+  }
+
   if (isLoading) {
     return (
       <View style={styles.loadingContainer}>
@@ -37,6 +42,10 @@ export default function Vaults() {
     return (
       <View style={styles.container}>
         <Header title="Coffres" />
+
+        <TouchableOpacity style={styles.button} onPress={onAdd}>
+          <Text style={styles.buttonText}>Ajouter un coffre</Text>
+        </TouchableOpacity>
 
         <FlatList
           data={vaults}
@@ -80,5 +89,18 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: "100%",
     marginBottom: 10,
+  },
+  button: {
+    backgroundColor: "#23769f",
+    padding: 12,
+    marginTop: 4,
+    marginBottom: 10,
+    borderRadius: 10,
+    margin: 5,
+  },
+  buttonText: {
+    color: "#ffffff",
+    textAlign: "center",
+    fontWeight: "bold",
   },
 });

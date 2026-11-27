@@ -13,6 +13,24 @@ export default function AppLayout() {
           headerBackButtonDisplayMode: "minimal",
         }}
       />
+
+      <Stack.Screen
+        name="vaults/modify/[id]"
+        options={{
+          title: "Modifier le coffre",
+          //https://stackoverflow.com/questions/75961091/react-native-headerbacktitlevisible-false-not-working-in-expo-sdk-48
+          headerBackButtonDisplayMode: "minimal",
+        }}
+      />
+
+      <Stack.Screen
+        name="vaults/create"
+        options={{
+          title: "Ajouter un coffre",
+          //https://stackoverflow.com/questions/75961091/react-native-headerbacktitlevisible-false-not-working-in-expo-sdk-48
+          headerBackButtonDisplayMode: "minimal",
+        }}
+      />
     </Stack>
   );
 }
