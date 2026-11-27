@@ -1,7 +1,12 @@
+export enum VaultState {
+  Ouvert = "Ouvert",
+  Ferme = "Fermé"
+}
+
 export interface Vault {
   id: string;
   name: string;
-  state: string; //
+  state: VaultState;
   code: number;
   temperature?: number;
   tempMin?: number;

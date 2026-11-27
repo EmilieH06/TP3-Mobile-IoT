@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import type { Vault } from "../types/vault";
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
 export default function VaultInfo({ vault }: Props) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}> {vault.id} : {vault.name}</Text>
+      <Text style={styles.title}> Id: {vault.id} --- Nom: {vault.name}</Text>
 
       <Text style={styles.textList}>
         État: {vault.state}
@@ -17,7 +17,7 @@ export default function VaultInfo({ vault }: Props) {
         Température: {vault.temperature}
       </Text>
       <Text style={styles.textList}>
-        {vault.time}
+        Dernière modification: {vault.time}
       </Text>
     </View>
   );
